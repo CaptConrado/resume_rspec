@@ -12,5 +12,9 @@ class Resume
 		true
 	end
 
+	def header
+		title_name = self.user_name
+	end
 end
 
+puts Resume.new.header

@@ -22,4 +22,13 @@ describe "Resume" do
 			Resume.new.file_name.should =~ /.pdf/
 		end
 	end
+
+	context "adds a header with the user name" do
+		it "should have the user name in the header" do 
+			title = Resume.new
+			title.header.should eq("Your Name")
+		end
+		# it "should have an address" do
+		# 	Resume.new.
+	end
 end
