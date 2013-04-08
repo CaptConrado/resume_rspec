@@ -17,4 +17,3 @@ class Resume
 	end
 end
 
-puts Resume.new.header
