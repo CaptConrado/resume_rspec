@@ -13,15 +13,15 @@ filename = "hello.pdf"
 		end
 
 		def experiance(title,company,location,date,arr)
-			"<b>#{title}</b>, #{company} - #{location}<i>(#{date})</i> \n - #{arr.first}\n - #{arr[2]} \n - #{arr.last}"
+			"<b>#{title}</b>, #{company} - #{location}<i>(#{date})</i> \n - #{arr[0]}\n - #{arr[1]} \n - #{arr[2]}"
 		end
 
 Prawn::Document.generate(filename) do
 	
 
 		# header
-		pad(15) {
-			font("../../../BigCaslon.ttf") do
+		pad(10) {
+			font("../../BigCaslon.ttf") do
 
 			text "#{name}", :align => :center, :size => 20
 		end
@@ -39,19 +39,19 @@ Prawn::Document.generate(filename) do
 
 			pad(25) do
 				stroke do
-					text "Education", :size => 18
+					text "Education", :size => 18, :style => :italic
 					horizontal_rule
 				end
 			end
-			text education("<b>Cal State San Marcos</b>","San Marcos, CA","<i>August 2005 - May 2009</i>"),:inline_format => true
-			text "<i>B.A., Communication</i>", :indent_paragraphs => 60,:inline_format => true
-			move_down 20
 			text education("<b>Arizona State University</b>","Phoenix, AZ","<i>August 2009 - May 2011</i>"),:inline_format => true
 			text "<i>M.A., Communication Studies</i>", :indent_paragraphs => 60,:inline_format => true
-
+			move_down 20
+			text education("<b>Cal State San Marcos</b>","San Marcos, CA","<i>August 2005 - May 2009</i>"),:inline_format => true
+			text "<i>B.A., Communication</i>", :indent_paragraphs => 60,:inline_format => true
+		
 			pad(15) do
 				stroke do
-					text "Skills", :size => 18
+					text "Skills", :size => 18, :style => :italic
 					horizontal_rule
 					# text "To obtain the Project / Account Manager position "
 				end
@@ -60,26 +60,31 @@ Prawn::Document.generate(filename) do
 			skills = ["Web Development","Ruby on Rails","Project Managment","Spin Selling","Small Group Communication"]
 
 			skills.each do |l|
-				text "-"+l
+				text "-"+l, :size => 12
 				move_down 2
 			end
 
 			pad(15) do
 				stroke do
-					text "Work Experiance ", :size => 18
+					text "Work Experiance ", :size => 18, :style => :italic
 					horizontal_rule
 				end
 			end
 			
-			j_one   = []
-			j_two   = []
-			j_three = []
+			j_one   = ["Served in a customer support role assisting customers with technical and adminitrative issues","In this roll, I also sold Software licences to new and existing customers.",
+						"Provided the enterprise sales team with leads for larger accounts."]
+			j_two   = ["Led a team of six in the creation,marketing and distribution of a custom directory app.",
+						"Met with Downtown Phoenix community leaders in order to secure funding and input for application content.",
+						"Tested the geolocation features across the Phoenix Metro area."]
+			j_three = ["Maintained and convert existing data gathering program from Perl to Ruby,while participating in continues code reviews.",
+						"Refactored our data-gathering application and reduced the codebase by 40% allowing for maintainable code.",
+						"Wrote documentation for future developers in order to assist them with future maintainance."]
 			exp = [experiance("Product Specialist","SmartDraw Software","San Diego, CA","August 2011 - May 2012",j_one),
-					experiance("Project Manager","(ASU)Walter Coronkite School of Journamsint ","Phoenix Arizona","date",j_two),
-					experiance("Contract Ruby Developer","Gap Intelligence","San Diego, CA","date",j_three)]
+					experiance("Project Manager","(ASU)Walter Cronkite School of Journalism ","Phoenix Arizona","Jan - May 2011",j_two),
+					experiance("Contract Ruby Developer","Gap Intelligence","San Diego, CA","August 2012 - Febuary 2013",j_three)]
 
 			exp.each do |l|
-				text l,:inline_format => true
+				text l,:inline_format => true, :size => 10
 				move_down 5
 				
       			move_down 3
@@ -87,7 +92,7 @@ Prawn::Document.generate(filename) do
 
 			pad(15) do
 				stroke do
-					text "Achievments", :size => 18
+					text "Achievments", :size => 18, :style => :italic
 					horizontal_rule
 				end
 			end
