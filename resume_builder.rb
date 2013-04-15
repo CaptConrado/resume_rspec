@@ -6,7 +6,7 @@ phone   = "858-213-3362"
 email   = "ottey001@gmail.com"
 website = "@CaptConrado" 
 
-filename = "hello.pdf"
+filename = "ottey_resume.pdf"
 
 		def education(school,location,date) 
 			"#{school}, #{location}, #{date}"
@@ -24,7 +24,7 @@ Prawn::Document.generate(filename) do
 
 		# header
 		pad(10) {
-			font("../../BigCaslon.ttf") do
+			font("BigCaslon.ttf") do
 
 			text "#{name}", :align => :center, :size => 20
 		end
