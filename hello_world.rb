@@ -1,10 +1,20 @@
 require "prawn"
 require "prawn/measurement_extensions"
 
+name    = "Conrad W. Ottey Jr."
+phone   = "858-213-3362"
+email   = "ottey001@gmail.com"
+website = "@CaptConrado" 
 
 filename = "hello.pdf"
+
+
+
 Prawn::Document.generate(filename) do
-	text "This text should be right aligned", :align => :right
+	text "#{name}", :align => :center, :size => 18
+
+
+	text "#{phone}|#{email}|#{website}", :align => :center, :size => 12
 end
 
 
@@ -23,20 +33,20 @@ end
 # 	text "distraction"
 # end 
 
-# Assignment
-pdf = Prawn::Document.new
-pdf.text "Hello World"
-pdf.render_file "assignment.pdf"
+# # Assignment
+# pdf = Prawn::Document.new
+# pdf.text "Hello World"
+# pdf.render_file "assignment.pdf"
 
-# Implicit Block
-Prawn::Document.generate("implicit.pdf") do
-  text "Hello World"
-  text "And why is this called implicet?"
-end
+# # Implicit Block
+# Prawn::Document.generate("implicit.pdf") do
+#   text "Hello World"
+#   text "And why is this called implicet?"
+# end
 
-# Explicit Block
-Prawn::Document.generate("explicit.pdf") do |pdf|
-  pdf.text "Hello World"
-  pdf.text "why is this called explicit?"
-end
+# # Explicit Block
+# Prawn::Document.generate("explicit.pdf") do |pdf|
+#   pdf.text "Hello World"
+#   pdf.text "why is this called explicit?"
+# end
 
