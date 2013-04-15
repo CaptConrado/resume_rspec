@@ -16,6 +16,9 @@ filename = "hello.pdf"
 			"<b>#{title}</b>, #{company} - #{location}<i>(#{date})</i> \n - #{arr[0]}\n - #{arr[1]} \n - #{arr[2]}"
 		end
 
+		def achieve()
+		end
+
 Prawn::Document.generate(filename) do
 	
 
@@ -26,18 +29,18 @@ Prawn::Document.generate(filename) do
 			text "#{name}", :align => :center, :size => 20
 		end
 		}
-			text "#{phone}|#{email}|#{website}", :align => :center, :size => 12
+			text "#{phone} | #{email} | #{website}", :align => :center
 		
-		
-			pad(20) do
+			pad(15) do
 				stroke do
 					text "Objective", :size => 18
 					horizontal_rule
 				end
 			end
-			text "Obtain an interview for the Account/Project manager position at SkyBox Creative"
+			text "Obtain an interview for the Account/Project manager position at SkyBox Creative", :size => 10,:style => :italic
+		
 
-			pad(25) do
+			pad(15) do
 				stroke do
 					text "Education", :size => 18, :style => :italic
 					horizontal_rule
@@ -45,11 +48,11 @@ Prawn::Document.generate(filename) do
 			end
 			text education("<b>Arizona State University</b>","Phoenix, AZ","<i>August 2009 - May 2011</i>"),:inline_format => true
 			text "<i>M.A., Communication Studies</i>", :indent_paragraphs => 60,:inline_format => true
-			move_down 20
+			move_down 15
 			text education("<b>Cal State San Marcos</b>","San Marcos, CA","<i>August 2005 - May 2009</i>"),:inline_format => true
 			text "<i>B.A., Communication</i>", :indent_paragraphs => 60,:inline_format => true
 		
-			pad(15) do
+			pad(10) do
 				stroke do
 					text "Skills", :size => 18, :style => :italic
 					horizontal_rule
@@ -85,51 +88,27 @@ Prawn::Document.generate(filename) do
 
 			exp.each do |l|
 				text l,:inline_format => true, :size => 10
-				move_down 5
+				move_down 4
 				
       			move_down 3
 			end
 
-			pad(15) do
+			pad(10) do
 				stroke do
-					text "Achievments", :size => 18, :style => :italic
+					text "Projects and Awards", :size => 18, :style => :italic
 					horizontal_rule
 				end
 			end
-
+			# def education(school,location,date) 
+			# education("<b><i></i></b>","Mobile Web/Android application SmartPhx.com (not optimized for desktop)"," completed Summer 2011"), :inline_format => true
+			# text "Completed ahead of schedule before or dealine goal of the 2011 All Star Game."
+			text education("<b>SmartPHX.com</b>","ASU","<i>completed Summer 2011</i>"),:inline_format => true, :size =>10
+			text "Mobile Web/Android application designed to be a tourist guide for Downtown Phoenix visitors",:size => 10, :indent_paragraphs => 5,:inline_format => true
+			move_down 10
+			text education("<b>Mobile HTML5 API finalist</b>","Qualcomm Uplinq conferance Hackathon","<i>May 2012</i>"),:inline_format => true, :size =>10
+			text "Won second place for a Web App that flashed morse code on a SnapDragon powered Android phone.",:size => 10, :indent_paragraphs => 5,:inline_format => true
+			move_down 10
+			text education("<b>VP of Student Affairs Leadership Award</b>","CSUSM","<i>May 2009</i>"),:inline_format => true, :size =>10
+			text "This award is given to one graduate from every graduating class.",:size => 10, :indent_paragraphs => 5,:inline_format => true
 			# /Library/FontsCourier\ New\ Italic.ttf
 end
-
-
-	
-# text "We are still on the initial page for this example. Now I'll ask " +
-# "Prawn to gently start a new page. Please follow me to the next page."
-# start_new_page
-# text "See. We've left the previous page behind."
-# stroke_horizontal_rule
-# pad(20) { text "Text padded both before and after." }
-# stroke_horizontal_rule
-# pad_top(20) { text "Text padded on the top." }
-# prawn = Prawn::Document
-
-# prawn.generate("maybe.pdf") do 
-# 	text "distraction"
-# end 
-
-# # Assignment
-# pdf = Prawn::Document.new
-# pdf.text "Hello World"
-# pdf.render_file "assignment.pdf"
-
-# # Implicit Block
-# Prawn::Document.generate("implicit.pdf") do
-#   text "Hello World"
-#   text "And why is this called implicet?"
-# end
-
-# # Explicit Block
-# Prawn::Document.generate("explicit.pdf") do |pdf|
-#   pdf.text "Hello World"
-#   pdf.text "why is this called explicit?"
-# end
-
