@@ -12,8 +12,8 @@ filename = "hello.pdf"
 			"#{school}, #{location}, #{date}"
 		end
 
-		def experiance(title,company,location,date)
-			"<b>#{title}</b>, #{company} - #{location}<i>(#{date})</i>"
+		def experiance(title,company,location,date,arr)
+			"<b>#{title}</b>, #{company} - #{location}<i>(#{date})</i> \n - #{arr.first}\n - #{arr[2]} \n - #{arr.last}"
 		end
 
 Prawn::Document.generate(filename) do
@@ -70,16 +70,19 @@ Prawn::Document.generate(filename) do
 					horizontal_rule
 				end
 			end
-			# jobs = [["1","2","3","4"],["1","2","3","4"],["1","2","3","4"]]
-			# jobs.each do |input|
-			# 	input[job:] => "1"
-			# end
-			exp = [experiance("Product Specialist","SmartDraw Software","San Diego, CA","August 2011 - May 2012"),
-					experiance("Project Manager","(ASU)Walter Coronkite School of Journamsint ","Phoenix Arizona","date"),
-					experiance("Contract Ruby Developer","Gap Intelligence","San Diego, CA","date")]
-				exp.each do |l|
+			
+			j_one   = []
+			j_two   = []
+			j_three = []
+			exp = [experiance("Product Specialist","SmartDraw Software","San Diego, CA","August 2011 - May 2012",j_one),
+					experiance("Project Manager","(ASU)Walter Coronkite School of Journamsint ","Phoenix Arizona","date",j_two),
+					experiance("Contract Ruby Developer","Gap Intelligence","San Diego, CA","date",j_three)]
+
+			exp.each do |l|
 				text l,:inline_format => true
 				move_down 5
+				
+      			move_down 3
 			end
 
 			pad(15) do
